@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Youth Public Health Leadership – Week 4 Session 1</title>
+  <meta name="description" content="Campaign Launch Preparation: Hunger = Stress = Risk Implementation Workshop" />
+
+  <!-- ========= GLOBAL STYLES ========= -->
+  <style>
+    :root{
+      --primary-color:#4c6ef5;
+      --secondary-color:#40c057;
+      --accent-color:#fd7e14;
+      --dark-color:#343a40;
+      --light-color:#f8f9fa;
+      --text-color:#212529;
+      --shadow:0 4px 8px rgba(0,0,0,.1)
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Segoe UI',Tahoma,sans-serif;line-height:1.6;color:var(--text-color);background:#f1f3f5}
+    .container{max-width:1200px;margin:auto;padding:5px}
+    header{background:linear-gradient(135deg,var(--primary-color),#228be6);color:#fff;padding:2.5rem;text-align:center;border-radius:15px;margin-bottom:2rem;box-shadow:var(--shadow)}
+    header h1{font-size:2.2rem;margin-bottom:.5rem;font-weight:700}
+    header h2{font-size:1.3rem;font-weight:600;margin-bottom:.4rem;opacity:.95}
+    header p{font-size:1.05rem;margin-bottom:1rem;opacity:.9}
+    .date-box{display:inline-block;background:rgba(255,255,255,.2);padding:.5rem 1.2rem;border-radius:30px;font-weight:500;margin-top:.4rem}
+
+    /* Campaign banner */
+    .campaign-banner{background:linear-gradient(135deg,var(--accent-color),#fa5252);color:#fff;padding:2rem;text-align:center;border-radius:15px;margin-bottom:2rem;box-shadow:var(--shadow)}
+    .campaign-banner h3{font-size:2rem;margin-bottom:1rem}
+    .campaign-banner p{font-size:1.2rem;font-style:italic}
+
+    /* CONTENT BLOCKS */
+    .intro-section,.activities-section{background:#fff;border-radius:15px;padding:2rem;margin-bottom:2rem;box-shadow:var(--shadow)}
+    .intro-message{text-align:center;max-width:800px;margin:0 auto 1.5rem;font-size:1.1rem;line-height:1.7}
+    .section-title{color:var(--primary-color);font-size:1.8rem;margin-bottom:1.5rem;text-align:center;position:relative;padding-bottom:.5rem}
+    .section-title::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:100px;height:3px;background:var(--primary-color)}
+
+    /* Statistics cards */
+    .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;margin-bottom:2rem}
+    .stat-card{background:var(--light-color);border-radius:10px;padding:1.5rem;text-align:center;border-left:4px solid var(--accent-color)}
+    .stat-card .stat-number{font-size:2rem;font-weight:700;color:var(--accent-color);margin-bottom:0.5rem}
+    .stat-card p{color:#495057}
+
+    /* ACTIVITY GRID */
+    .activity-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:2rem}
+    .activity-card{background:var(--light-color);border-radius:10px;padding:1.5rem;box-shadow:0 2px 4px rgba(0,0,0,.05);transition:transform .3s;cursor:pointer;position:relative}
+    .activity-card:hover{transform:translateY(-5px)}
+    .activity-card h4{color:var(--primary-color);margin-bottom:1rem;font-size:1.1rem;display:flex;align-items:center;justify-content:space-between}
+    .activity-card h4 .time{font-size:.8rem;padding:.3rem .6rem;border-radius:20px;background:var(--accent-color);color:#fff;font-weight:400}
+    .activity-card ul{padding-left:1.2rem;margin-top:.5rem}
+    .activity-card li{margin-bottom:.5rem;color:#495057;font-size:.95rem}
+    .expand-icon{position:absolute;bottom:15px;right:15px;background:var(--primary-color);color:#fff;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;transition:.3s}
+    .detailed-content{display:none;background:#fff;border-radius:10px;padding:1.5rem;margin-top:1rem;border-top:3px solid var(--primary-color)}
+    .detailed-content.active{display:block;animation:fade .5s}
+    
+    @keyframes fade{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
+    
+    /* BOXES FOR KEY TERMS, DISCUSSION, ACTIVITIES, REFLECTION */
+    .definition-box{background:#e7f5ff;border-left:4px solid #4dabf7;padding:1rem;border-radius:5px;margin-bottom:1.5rem}
+    .discussion-box{background:#fff9db;border-left:4px solid #fcc419;padding:1rem;border-radius:5px;margin-bottom:1.5rem}
+    .activity-box{background:#f3f0ff;border-left:4px solid #7950f2;padding:1rem;border-radius:5px;margin-bottom:1.5rem}
+    .feedback-box{background:#ebfbee;border-left:4px solid #40c057;padding:1rem;border-radius:5px;margin-bottom:1.5rem}
+    .warning-box{background:#ffe3e3;border-left:4px solid #fa5252;padding:1rem;border-radius:5px;margin-bottom:1.5rem}
+
+    /* Do/Don't columns */
+    .do-dont-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin:1.5rem 0}
+    .do-column{background:#ebfbee;padding:1.5rem;border-radius:10px;border:2px solid #40c057}
+    .dont-column{background:#ffe3e3;padding:1.5rem;border-radius:10px;border:2px solid #fa5252}
+    .do-column h5{color:#40c057;margin-bottom:1rem}
+    .dont-column h5{color:#fa5252;margin-bottom:1rem}
+    
+    /* FOOTER */
+    .footer{text-align:center;padding:2rem;background:var(--dark-color);color:#fff;border-radius:15px;margin-top:2rem;font-size:.9rem}
+    @media(max-width:768px){.activity-grid{grid-template-columns:1fr}.do-dont-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- ===== HEADER ===== -->
+    <header>
+      <h1>Campaign Launch Preparation</h1>
+      <h2>Week 4, Session 1</h2>
+      <p>"Hunger = Stress = Risk" Implementation Workshop</p>
+      <div class="date-box">Monday, June 2, 2025</div>
+    </header>
+
+    <!-- Campaign Banner -->
+    <section class="campaign-banner">
+      <h3>HUNGER = STRESS = RISK</h3>
+      <p>"When basic needs aren't met, everything else becomes harder. Let's break the cycle together."</p>
+    </section>
+
+    <!-- Introduction -->
+    <section class="intro-section">
+      <div class="intro-message">
+        <p><strong>Welcome to Campaign Launch Week!</strong><br>After 6 months of preparation, you're ready to implement your youth-designed campaign. Today we'll finalize messaging, practice peer engagement techniques, and prepare materials for distribution across your schools.</p>
+        <div class="date-box">Session Duration: 90 minutes</div>
+      </div>
+    </section>
+
+    <!-- Key Statistics -->
+    <section class="activities-section">
+      <h2 class="section-title">Key Campaign Statistics</h2>
+      <p style="text-align:center;margin-bottom:20px;color:#495057;">Share these powerful facts to demonstrate why your work matters.</p>
+      
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">2x</div>
+          <p>Teens experiencing food insecurity are twice as likely to report anxiety and depression</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">1.5x</div>
+          <p>Food-insecure youth are 1.5 times more likely to engage in unprotected sex</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">30%</div>
+          <p>Only 30% of eligible youth access available free resources - you can change this!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Activities -->
+    <section class="activities-section">
+      <h2 class="section-title">Session Activities</h2>
+      <p style="text-align:center;margin-bottom:20px;color:#495057;">Click each activity to see detailed instructions and resources.</p>
+      
+      <div class="activity-grid">
+        <!-- Activity 1: Campaign Framework Review -->
+        <div class="activity-card" onclick="toggleSection('act-framework')">
+          <h4>Campaign Framework & Messaging Review <span class="time">15 mins</span></h4>
+          <ul>
+            <li>Review 3R framework</li>
+            <li>Practice core messages</li>
+            <li>Integrate youth voices</li>
+          </ul>
+          <div class="expand-icon">+</div>
+          
+          <div id="act-framework" class="detailed-content">
+            <div class="definition-box">
+              <h4>The 3R Framework</h4>
+              <p><strong>RECOGNIZE:</strong> The connections between hunger, stress, and health risks</p>
+              <p><strong>REDUCE:</strong> Stigma around seeking help for any of these issues</p>
+              <p><strong>RESOURCE:</strong> Connect peers to free, confidential services</p>
+            </div>
+            
+            <div class="discussion-box">
+              <h4>Your Integrated Messages</h4>
+              <ul>
+                <li><strong>Fiza's Hook:</strong> "When food isn't secure, nothing is."</li>
+                <li><strong>Judea's Explanation:</strong> "Food insecurity isn't just about hunger. It creates a cycle of stress that impacts decision-making."</li>
+                <li><strong>Marley's Connection:</strong> "Understanding how food security affects mental health is key to making safer choices."</li>
+              </ul>
+            </div>
+            
+            <div class="activity-box">
+              <h4>Practice Activity</h4>
+              <p>Create a 30-second elevator pitch that you would use in the school hallway. Your pitch should:</p>
+              <ul>
+                <li>Start with one of the youth-created hooks</li>
+                <li>Include at least one statistic</li>
+                <li>End with a specific resource or action</li>
+                <li>Sound natural in YOUR voice</li>
+              </ul>
+              <p><strong>Practice with a partner and give each other feedback on authenticity and clarity.</strong></p>
+            </div>
+            
+            <div class="feedback-box">
+              <h4>Reflection</h4>
+              <p>Which R feels most natural to you? Which one challenges you to grow?</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Activity 2: Mental Health Messaging Practice -->
+        <div class="activity-card" onclick="toggleSection('act-mental-health')">
+          <h4>Mental Health Messaging Practice <span class="time">25 mins</span></h4>
+          <ul>
+            <li>Learn youth-friendly language</li>
+            <li>Practice supportive responses</li>
+            <li>Role-play scenarios</li>
+          </ul>
+          <div class="expand-icon">+</div>
+          
+          <div id="act-mental-health" class="detailed-content">
+            <div class="definition-box">
+              <h4>Key Principles</h4>
+              <ul>
+                <li><strong>Normalize:</strong> Mental health struggles are common and valid</li>
+                <li><strong>Validate:</strong> Acknowledge feelings without judgment</li>
+                <li><strong>Connect:</strong> Link to resources without pressure</li>
+                <li><strong>Follow-up:</strong> Check in shows you care</li>
+              </ul>
+            </div>
+            
+            <div class="do-dont-grid">
+              <div class="do-column">
+                <h5>✅ DO Say:</h5>
+                <ul>
+                  <li>"It's okay to not be okay"</li>
+                  <li>"Your feelings are valid"</li>
+                  <li>"Help is available, no questions asked"</li>
+                  <li>"You deserve support"</li>
+                  <li>"Mental health is health"</li>
+                  <li>"Taking care of yourself is brave"</li>
+                </ul>
+              </div>
+              <div class="dont-column">
+                <h5>❌ DON'T Say:</h5>
+                <ul>
+                  <li>"Just think positive"</li>
+                  <li>"Others have it worse"</li>
+                  <li>"You're being dramatic"</li>
+                  <li>"Snap out of it"</li>
+                  <li>"You're too young to be stressed"</li>
+                  <li>Clinical terms without explanation</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="activity-box">
+              <h4>Scenario Practice</h4>
+              <p><strong>Scenario 1:</strong> A classmate mentions they've been too stressed to eat properly.</p>
+              <p><strong>Your response framework:</strong></p>
+              <ol>
+                <li>Validate: "That sounds really tough."</li>
+                <li>Connect: "Stress and eating are definitely connected."</li>
+                <li>Resource: "There's free food and support available if you want info."</li>
+              </ol>
+              
+              <p><strong>Scenario 2:</strong> A friend says they're embarrassed to use the food pantry.</p>
+              <p><strong>Practice responses that:</strong></p>
+              <ul>
+                <li>Normalize the experience</li>
+                <li>Share (if comfortable) that many students use resources</li>
+                <li>Emphasize confidentiality and dignity</li>
+              </ul>
+            </div>
+            
+            <div class="feedback-box">
+              <h4>Group Discussion</h4>
+              <p>What makes mental health conversations easier with peers vs. adults? How can we use this to our advantage?</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Activity 3: Health & Wellness Conversations -->
+        <div class="activity-card" onclick="toggleSection('act-health')">
+          <h4>Health & Wellness Conversations for All Communities <span class="time">20 mins</span></h4>
+          <ul>
+            <li>Culturally responsive messaging</li>
+            <li>Emphasize privacy and respect</li>
+            <li>Connect wellness to overall success</li>
+          </ul>
+          <div class="expand-icon">+</div>
+          
+          <div id="act-health" class="detailed-content">
+            <div class="definition-box">
+              <h4>Universal Health Messages</h4>
+              <ul>
+                <li><strong>"Your wellness matters"</strong> - Everyone deserves to be healthy</li>
+                <li><strong>"Private and respectful care"</strong> - Services that honor your values</li>
+                <li><strong>"Health is for everyone"</strong> - Inclusive services for all backgrounds</li>
+                <li><strong>"Take care of your whole self"</strong> - Physical, mental, and emotional health</li>
+              </ul>
+            </div>
+            
+            <div class="discussion-box">
+              <h4>School-Friendly Talking Points</h4>
+              <ul>
+                <li>Connect health to academic success: "It's hard to focus when you're stressed or hungry"</li>
+                <li>Emphasize prevention: "Taking care of yourself now helps you reach your goals"</li>
+                <li>Respect family values: "These resources work with what's important to you and your family"</li>
+                <li>Focus on empowerment: "You have the right to take care of your health"</li>
+              </ul>
+            </div>
+            
+            <div class="activity-box">
+              <h4>Culturally Responsive Practice</h4>
+              <p><strong>Key Approaches:</strong></p>
+              <ul>
+                <li><strong>For concerns about family privacy:</strong> "Everything is confidential - your family's business stays private"</li>
+                <li><strong>For language barriers:</strong> "Services are available in Spanish and other languages"</li>
+                <li><strong>For cultural concerns:</strong> "Staff understand and respect different backgrounds"</li>
+                <li><strong>For trust issues:</strong> "These are community services designed BY and FOR people like us"</li>
+              </ul>
+              
+              <p><strong>Practice Activity:</strong> Role-play introducing health resources to:</p>
+              <ol>
+                <li>A student who might worry about family reputation</li>
+                <li>Someone whose first language isn't English</li>
+                <li>A peer who doesn't trust "the system"</li>
+              </ol>
+            </div>
+            
+            <div class="feedback-box">
+              <h4>Reflection</h4>
+              <p>How can we make health conversations comfortable for students from all backgrounds? What words or approaches work best in your community?</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Activity 4: Peer Engagement Strategies -->
+        <div class="activity-card" onclick="toggleSection('act-peer')">
+          <h4>Creative Peer Engagement Strategies <span class="time">30 mins</span></h4>
+          <ul>
+            <li>Interactive engagement ideas</li>
+            <li>Quick activities for busy students</li>
+            <li>Making resources memorable</li>
+          </ul>
+          <div class="expand-icon">+</div>
+          
+          <div id="act-peer" class="detailed-content">
+            <div class="activity-box">
+              <h4>Beyond Handouts: Creative Engagement</h4>
+              
+              <p><strong>1. "Stress Check" Stickers (2-minute interaction)</strong></p>
+              <ul>
+                <li>Create mood stickers (happy face, stressed face, hungry face)</li>
+                <li>Ask: "How's your day going?" and offer appropriate sticker</li>
+                <li>Each sticker has a resource on the back</li>
+                <li>Makes resources feel like peer support, not charity</li>
+              </ul>
+              
+              <p><strong>2. "Myth Buster" Challenge (5-minute activity)</strong></p>
+              <ul>
+                <li>Quick true/false cards about health resources</li>
+                <li>Example: "True or False: You need parent permission for mental health support"</li>
+                <li>Correct answers earn resource cards</li>
+                <li>Makes learning interactive and fun</li>
+              </ul>
+              
+              <p><strong>3. "Wellness Playlist" Exchange</strong></p>
+              <ul>
+                <li>Trade song recommendations for self-care</li>
+                <li>Each playlist card includes a wellness tip and resource</li>
+                <li>Connects to youth culture naturally</li>
+              </ul>
+              
+              <p><strong>4. "Lunch Line Conversations"</strong></p>
+              <ul>
+                <li>Position near food areas during peak times</li>
+                <li>Natural opener: "Long line today, right? Hey, did you know about the free food programs?"</li>
+                <li>Non-threatening, casual approach</li>
+              </ul>
+            </div>
+            
+            <div class="discussion-box">
+              <h4>Quick Interaction Scripts</h4>
+              <p><strong>For shy students:</strong> Leave resources in visible spots with a note: "Take one if you need it - no questions asked"</p>
+              <p><strong>For skeptical peers:</strong> "I'm just sharing what I learned - thought it might help someone"</p>
+              <p><strong>For busy students:</strong> "Real quick - here's a card with free resources. Text the number if you ever need it"</p>
+            </div>
+            
+            <div class="feedback-box">
+              <h4>Brainstorm Session</h4>
+              <p>What creative ideas does YOUR team have for engaging peers? Consider:</p>
+              <ul>
+                <li>Popular hangout spots at your school</li>
+                <li>Times when students are most receptive</li>
+                <li>Ways to make resources "cool" or desirable</li>
+                <li>How to reach different friend groups</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Assignment -->
+    <section class="activities-section">
+      <h2 class="section-title">Session Assignment</h2>
+      <div class="activity-grid">
+        <div class="activity-card" style="cursor:auto;">
+          <h4>Complete Campaign Survey & Prepare for Launch <span class="time">Due Tonight</span></h4>
+          <ul>
+            <li>Complete 11-question campaign readiness survey</li>
+            <li>Finalize all materials for printing</li>
+            <!-- <li>Review distribution assignments for your school</li> -->
+          </ul>
+          <div class="detailed-content" style="display:block;">
+            <p><strong>Campaign Readiness Survey:</strong> Complete the 11-question survey on Google Classroom.</p>
+            
+            <p><strong>Material Submission:</strong> Upload final versions of all materials to the shared drive by 5:00 PM tomorrow for printing.</p>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <p>© 2025 Health Amplified · Youth Public Health Action &amp; Collaborative Systems Lab</p>
+      <p>Club Stride · Contact: javier@clubstride.org | (707) 204-3160</p>
+    </footer>
+  </div>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script>
+    function toggleSection(id){
+      const el = document.getElementById(id);
+      if(!el) return;
+      el.classList.toggle('active');
+      const card = el.closest('.activity-card');
+      if(card){
+        const expanded = el.classList.contains('active');
+        card.setAttribute('aria-expanded', expanded);
+        const icon = card.querySelector('.expand-icon');
+        if(icon) icon.textContent = expanded ? '–' : '+';
+      }
+    }
+  </script>
+</body>
+</html>
